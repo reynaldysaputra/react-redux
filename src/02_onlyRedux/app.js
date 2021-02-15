@@ -1,6 +1,11 @@
-const redux = require('@reduxjs/toolkit');
+import reactLogger from 'redux-logger';
+import redux from '@reduxjs/toolkit';
+
+const { logger } = reactLogger;
+
 const createStore = redux.createStore;
 const combineReducer = redux.combineReducers; // Mengkombinasi banyak fungsi reducer
+const applyMiddleware = redux.applyMiddleware;
 
 const BUY_CAKE = 'BUY_CAKE';
 const BUY_ICECREAM = 'BUY_ICECREAM'
@@ -52,13 +57,11 @@ let rootReducer = combineReducer({ // Membuat route kombinasi reducer
    iceCream : iceCreamReducer
 })
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer, applyMiddleware(logger));
 
 console.log('initial state    : ', store.getState());
 
-const unsubscribe = store.subscribe(() => {   
-   console.log('update state : ', store.getState()); 
-});
+const unsubscribe = store.subscribe(() => {});
 
 store.dispatch(buyIceCream());  // ini dicatat
 store.dispatch(buyIceCream());  // ini dicatat 
