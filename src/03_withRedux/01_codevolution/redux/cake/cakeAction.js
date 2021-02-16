@@ -1,5 +1,4 @@
-export const BUY_CAKE = 'BUY_CAKE';
-export const CANCEL_BUYING_CAKE = 'CANCEL_BUYING_CAKE';
+import { BUY_CAKE, CANCEL_BUYING_CAKE } from "./cakeType"
 
 export function buyCake() {
    return {

@@ -1,5 +1,5 @@
-import { cakeInitialState } from "../initalState";
-import { BUY_CAKE, CANCEL_BUYING_CAKE } from "./cakeAction";
+import { cakeInitialState } from "../../initalState";
+import { BUY_CAKE, CANCEL_BUYING_CAKE } from "./cakeType";
 
 export function ReducerCake(state = cakeInitialState, action) {
    switch(action.type) {

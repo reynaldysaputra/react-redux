@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { buyCake } from './redux/cakeAction';
+import { buyCake } from './cakeAction';
 
 function CakeAppHoc(props){
    return(
@@ -14,7 +14,7 @@ function CakeAppHoc(props){
 
 const mapStateToProps = (state) => {
    return {
-      numbOfCakes : state.numbOfCake
+      numbOfCakes : state.cake.numbOfCake
    }
 }
 
