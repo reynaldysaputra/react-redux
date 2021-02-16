@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { buyCake } from './redux/cakeAction';
 
-function CakeApp(props){
+function CakeAppHoc(props){
    return(
       <>
          {console.log(props)}
-         <h1>Numb of cake - {props.numbOfCakes}</h1>
+         <h1>HOC Numb of cake - {props.numbOfCakes}</h1>
          <button onClick={props.buyCake}>Buy Cake</button>
       </>
    )
@@ -24,4 +24,4 @@ const mapDispatchToProps = (dispatch) => {
    }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(CakeApp);
+export default connect(mapStateToProps, mapDispatchToProps)(CakeAppHoc);

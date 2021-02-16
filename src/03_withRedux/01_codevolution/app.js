@@ -1,12 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { cakeStore } from './redux/cakeStore';
-import CakeApp from './cakeApp';
+import CakeAppHoc from './cakeAppHoc';
+import CakeAppHook from './cakeAppHook';
 
 function AppsCodevolution() {
    return(
       <Provider store={cakeStore}>
-         <CakeApp/>
+         <CakeAppHoc/>
+         <CakeAppHook/>
       </Provider>
    )
 }
