@@ -1,13 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
 import BasicRedux from './01_basic/redux';
+import AppsCodevolution from './03_withRedux/01_codevolution/app';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BasicRedux />
+    <AppsCodevolution />
   </React.StrictMode>,
   document.getElementById('root')
 );

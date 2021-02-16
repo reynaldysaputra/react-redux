@@ -1,6 +1,9 @@
 import redux from '@reduxjs/toolkit';
+import { default as ReduxThunk } from 'redux-thunk';
+import axios from 'axios';
 
 const createStore = redux.createStore;
+const applyMiddleware = redux.applyMiddleware;
 
 // State
 const initialState = {
@@ -22,7 +25,7 @@ const fetchUserRequest = () => {
 
 const fetchUserSuccses = (value) => {
    return {
-      type : fetchUserSuccses,
+      type : FETCH_USER_SUCCSES,
       payload : {
          dataUser : value
       }
@@ -31,7 +34,7 @@ const fetchUserSuccses = (value) => {
 
 const fetchUserError = (value) => {
    return {
-      type : fetchUserError,
+      type : FETCH_USER_ERROR,
       payload : {
          err : value
       }
@@ -53,9 +56,26 @@ function ReducerAsync(state = initialState, action) {
       case FETCH_USER_ERROR : return {
          loading : false,
          data : [],
-         error : action.payload.error
+         error : action.payload.err
       }
+      default : return state
    }
 }
 
-const store = createStore(ReducerAsync);
+const fetchUsers = () => {
+   return (dispatch) => {
+      dispatch(fetchUserRequest());
+      axios.get('https://jsonplaceholder.typicode.com/users')
+         .then(res => {
+            const data = res.data.map(item => item.name);
+            dispatch(fetchUserSuccses(data));
+         })
+         .catch(err => {
+            dispatch(fetchUserError(err));
+         })
+   }
+}
+
+const store = createStore(ReducerAsync , applyMiddleware(ReduxThunk.default));
+store.subscribe(() => console.log(store.getState()));
+store.dispatch(fetchUsers());
