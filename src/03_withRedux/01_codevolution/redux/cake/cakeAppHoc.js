@@ -5,7 +5,6 @@ import { buyCake } from './cakeAction';
 function CakeAppHoc(props){
    return(
       <>
-         {console.log(props)}
          <h1>HOC Numb of cake - {props.numbOfCakes}</h1>
          <button onClick={props.buyCake}>Buy Cake</button>
       </>
