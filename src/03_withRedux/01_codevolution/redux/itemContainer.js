@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { buyCake } from './cake/cakeAction';
 import { buyIceCream } from './iceCream/iceAction';
 
+// Ini bisa dikatakan membuat component, dan mengirim props agar sesuai datanya
+
 function ItemShop(props){
    return(
       <>

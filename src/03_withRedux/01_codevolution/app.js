@@ -7,10 +7,13 @@ import CakeAppRequest from './redux/cake/cakeRequestBuy';
 import IceCreamAppHoc from './redux/iceCream/iceAppHoc';
 import IceCreamAppHook from './redux/iceCream/iceCreamHook';
 import ItemProps from './redux/itemContainer';
+import UserApp from './redux/user/userApp';
 
 function AppsCodevolution() {
    return(
       <Provider store={cakeStore}>
+         <UserApp/>
+         
          <ItemProps cake={true} title={'Cake'}/>
 
          <CakeAppHoc/>
