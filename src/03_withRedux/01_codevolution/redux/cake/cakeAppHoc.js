@@ -6,7 +6,7 @@ function CakeAppHoc(props){
    return(
       <>
          <h1>HOC Numb of cake - {props.numbOfCakes}</h1>
-         <button onClick={props.buyCake}>Buy Cake</button>
+         <button onClick={() => props.buyCake(1)}>Buy Cake</button>
       </>
    )
 }
@@ -19,7 +19,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
    return {
-      buyCake : () => dispatch(buyCake())
+      buyCake : (number) => dispatch(buyCake(number))
    }
 }
 
